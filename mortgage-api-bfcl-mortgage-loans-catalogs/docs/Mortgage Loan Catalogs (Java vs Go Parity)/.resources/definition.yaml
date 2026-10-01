@@ -1,0 +1,4 @@
+$kind: collection
+description: Colección con los 14 casos de uso documentados para validar paridad exacta entre el legado en Java (8080) y el nuevo microservicio en Go Hexagonal (8082).
+variables:
+  BASE_URL: http://localhost:8082

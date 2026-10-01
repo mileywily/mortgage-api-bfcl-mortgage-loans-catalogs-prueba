@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{BASE_URL}}/v1/bfcl/mortgage-loan/catalogs/SeguroItem"
+method: POST
+order: 14000

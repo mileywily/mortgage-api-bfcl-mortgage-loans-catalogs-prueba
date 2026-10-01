@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{BASE_URL}}/v1/bfcl/mortgage-loan/catalogs/tiposdocumentos"
+method: POST
+order: 5000

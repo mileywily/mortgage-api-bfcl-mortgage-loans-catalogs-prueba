@@ -1,0 +1,14 @@
+$kind: http-request
+name: Consultar Créditos (Formato Inválido de RUT - Payment Required)
+url: "{{base_url}}/api/creditos/consulta/"
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+body:
+  type: json
+  content: |-
+    {
+      "Rut": "RUT-INVALIDO-123"
+    }
+order: 4000

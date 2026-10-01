@@ -1,0 +1,100 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: mortgage-api-bfcl-mortgage-loans-catalogs
+  description: Microservicio para consulta de catálogos de créditos hipotecarios
+  labels:
+    country: chile
+    portfolio: sin-identificar
+    equipo: equipo que crea la api
+  tags:
+    - api
+  links:
+    - url: url-de-apicurio
+      title: Apicurio
+      icon: docs
+spec:
+  type: openapi
+  owner: group:fiftech_integraciones_chile
+  lifecycle: pre-production
+  system: fraud-and-aml-risks-chile
+  #Copy paste del OAS
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0
+      title: Mortgage Loan Catalogs
+    servers:
+      - url: http://integracion-k8s-dev.fif.tech
+      - url: http://integracion-k8s-qa.fif.tech
+    paths:
+      /health:
+        get:
+          summary: Health check
+      /v1/bfcl/mortgage-loan/catalogs/{catalog}:
+        post:
+          summary: Consultar un catálogo hipotecario
+          parameters:
+            - name: catalog
+              in: path
+              required: true
+              schema:
+                type: string
+            - name: X-Channel
+              in: header
+              required: false
+              schema:
+                type: string
+            - name: X-Commerce
+              in: header
+              required: false
+              schema:
+                type: string
+            - name: X-Transaction-ID
+              in: header
+              required: false
+              schema:
+                type: string
+            - name: X-Backend-Env
+              in: header
+              required: false
+              schema:
+                type: string
+                enum: [real, java, dummy]
+          responses:
+            '200':
+              description: Catálogo consultado
+            '400':
+              description: Error al consultar el catálogo
+            '401':
+              description: Autenticación inválida en upstream
+            '402':
+              description: Catálogo no encontrado
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: mortgage-api-bfcl-mortgage-loans-catalogs
+  description: Microservicio para consulta de catálogos de créditos hipotecarios
+  labels:
+    country: chile
+    capability: fraud-and-aml-risks
+    portfolio: tecnologico
+    equipo: equipo que crea la api
+  tags:
+    - rest
+    - go
+  links:
+    - url: url-obtenida-de-compartir-de-confluence-del-RFC
+      title: RFC
+      icon: docs
+    - url: https://app.datadoghq.com/dashboard/mfy-amg-bss/integraciones-cl-consolidada?from_ts=1688656754013&to_ts=1688660354013&live=true
+      title: APM DataDog
+      icon: dashboard
+spec:
+  type: service
+  owner: group:fiftech_integraciones_chile
+  lifecycle: pre-production
+  system: fraud-and-aml-risks-chile
+  providesApis:
+    - mortgage-api-bfcl-mortgage-loans-catalogs

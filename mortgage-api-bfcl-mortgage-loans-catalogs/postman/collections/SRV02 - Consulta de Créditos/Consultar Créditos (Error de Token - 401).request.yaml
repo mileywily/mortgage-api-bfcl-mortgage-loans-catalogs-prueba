@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/api/creditos/consulta/"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "Rut": "25671646-1"
+    }
+order: 2000
