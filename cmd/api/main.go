@@ -74,10 +74,10 @@ func main() {
 		httpFIF.Timeout(cfg.Timeout),
 		httpFIF.Logger(logger),
 		httpFIF.Header(config.HeaderContentType, "application/json"),
-		httpFIF.BasicAuth(cfg.FinnflowKey, cfg.FinnflowSecret),
+		//httpFIF.BasicAuth(cfg.FinnflowKey, cfg.FinnflowSecret),
 		httpFIF.WithDatadogTracer(),
 	)
-	realRepo := catalogSvc.NewRestRepository(finnflowClient, "/api/catalogo_detail/", true)
+	//realRepo := catalogSvc.NewRestRepository(finnflowClient, "/api/catalogo_detail/", true)
 
 	// 5c. Java legacy proxy repository (POST + headers X-*)
 	javaClient := httpFIF.NewRestClient(
@@ -88,7 +88,7 @@ func main() {
 		httpFIF.WithDatadogTracer(),
 		httpFIF.WithMandatoryHeaders(),
 	)
-	javaRepo := catalogSvc.NewRestRepository(javaClient, "/v1/bfcl/mortgage-loan/catalogs/", false)
+	/* javaRepo := catalogSvc.NewRestRepository(javaClient, "/v1/bfcl/mortgage-loan/catalogs/", false)
 
 	// 5d. Decorar repositorios con tracing
 	tracedDummyRepo := tracerMiddleware.NewCatalogRepositoryMiddleware(dummyRepo, logger)
@@ -107,7 +107,7 @@ func main() {
 		defaultUsecase = dummyUsecase
 	case "java":
 		defaultUsecase = javaUsecase
-	}
+	} */
 
 	// 5g. Decorar usecases con tracing
 	tracedDefaultUsecase := tracerMiddleware.NewCatalogUsecaseMiddleware(defaultUsecase, logger)
