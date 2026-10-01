@@ -1,0 +1,9 @@
+include:
+  - project: fif/dx/configurable-pipelines/golang-build-pipeline
+    ref: v2
+    file: pipeline.yml
+variables:
+  DEPLOY_PLATFORM: null-platform
+  DEFAULT_GROUP_CI_RUNNER_TAG: fif-corp-az-ci
+  MIN_COVERAGE: 80
+  PROJECT_NAME: integracion-api-dev
