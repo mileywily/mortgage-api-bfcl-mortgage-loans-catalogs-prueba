@@ -74,8 +74,8 @@ func main() {
 	}
 
 	// Inyección de los backends disponibles; el caso de uso aplica default y override por request.
-	dummyRepository := catalog_repository.NewDummyRepository()
-	finnflowRepository := catalog_repository.NewRestRepositoryWithTimeout(
+	dummyRepository := repository.NewDummyRepository()
+	finnflowRepository := repository.NewRestRepositoryWithTimeout(
 		cfg.FinnflowURL,
 		"/api/catalogo_detail/",
 		true,
@@ -83,7 +83,7 @@ func main() {
 		cfg.FinnflowSecret,
 		cfg.Timeout,
 	)
-	javaRepository := catalog_repository.NewRestRepositoryWithTimeout(
+	javaRepository := repository.NewRestRepositoryWithTimeout(
 		cfg.JavaLegacyURL,
 		"/v1/bfcl/mortgage-loan/catalogs/",
 		false,
