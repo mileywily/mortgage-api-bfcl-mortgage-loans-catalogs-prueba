@@ -1,0 +1,16 @@
+# Use this workspace to collaborate
+workspace:
+  id: ""
+
+localResources:
+  collections:
+    - ../docs/Mortgage Loan Catalogs (Java vs Go Parity)
+  specs:
+    - ../docs/swagger.json
+    - ../docs/swagger.yaml
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ../postman/collections/SRV02 - Consulta de Créditos: 6eb3e1fa-2bb1-47e4-a7b8-a701cb700e4c

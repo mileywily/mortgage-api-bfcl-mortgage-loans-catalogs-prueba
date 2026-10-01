@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{BASE_URL}}/v1/bfcl/mortgage-loan/catalogs/Vacio"
+method: POST
+order: 10000

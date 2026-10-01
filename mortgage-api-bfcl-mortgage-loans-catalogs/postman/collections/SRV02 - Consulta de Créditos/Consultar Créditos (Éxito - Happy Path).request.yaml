@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{base_url}}/api/creditos/consulta/"
+method: POST
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Authorization
+    value: Bearer {{token}}
+    description: Token JWT de autorización
+body:
+  type: json
+  content: |-
+    {
+      "Rut": "25671646-1"
+    }
+order: 1000

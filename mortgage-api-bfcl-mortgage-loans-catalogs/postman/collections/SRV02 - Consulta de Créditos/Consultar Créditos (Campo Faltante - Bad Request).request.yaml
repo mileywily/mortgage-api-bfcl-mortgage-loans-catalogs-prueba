@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{base_url}}/api/creditos/consulta/"
+method: POST
+headers:
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+body:
+  type: json
+  content: "{}"
+order: 3000

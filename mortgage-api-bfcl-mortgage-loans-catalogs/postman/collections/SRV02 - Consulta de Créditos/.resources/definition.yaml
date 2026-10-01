@@ -1,0 +1,5 @@
+$kind: collection
+description: Colección de pruebas locales para el microservicio api-creditos-consulta (Arquitectura Hexagonal en Go).
+variables:
+  base_url: http://localhost:8082
+  token: mock_token_123
